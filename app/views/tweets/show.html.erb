@@ -1,0 +1,97 @@
+<h1>神奈川のファーマーズマーケット</h1>
+<h3>Tweet詳細</h3>
+<div class="tweet">
+  <p><%= @tweet.name %></p>
+  <p><%= @tweet.date %></p>
+  <p><%= @tweet.place %></p>
+  <p><%= @tweet.genre %></p>
+  <p><%= @tweet.organizer %></p>
+  <p><%= @tweet.about %></p>
+  <p><%= @tweet.created_at %></p>
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(@tweet) %>
+        <%= link_to tweet_like_path(@tweet), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+          
+        <% end %>
+      <% else %>
+        <%= link_to tweet_likes_path(@tweet), method: :tweet do %>
+            <i class="far fa-heart"></i><%= @tweet.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+    <i class="far fa-heart"></i><%= @tweet.likes.count %>
+    <% end %>
+
+</div>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= link_to "削除する", tweet_path(@tweet.id), method: :delete %> 
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>投稿の詳細</title>
+    <style>
+        /* 地図を表示する領域のスタイル */
+        #map {
+            height: 400px; /* 地図の高さ */
+            width: 500px;   /* 地図の幅 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 地図を表示する領域 -->
+    <div id="map"></div>
+
+    <!-- Google Maps JavaScript API の読み込み -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbWpjRd9zzKQqIb3lBxY0MpWhINkr9yvQ&callback=initMap" async defer></script>
+
+    <script>
+        // 地図を初期化する関数
+        function initMap() {
+            // 投稿された場所の緯度と経度（例として東京駅の座標）
+            var postLocation = {lat: 35.681236, lng: 139.767125};
+            
+            // 地図を作成
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: postLocation, // 地図の初期表示位置
+                zoom: 12 // ズームレベル (1 〜 20)
+            });
+
+            // マーカーを追加して投稿された場所を地図上に表示
+            var marker = new google.maps.Marker({
+                map: map,
+                position: postLocation,
+                title: '投稿された場所'
+            });
+        }
+    </script>
+</body>
+</html>
+        
+
+</div>

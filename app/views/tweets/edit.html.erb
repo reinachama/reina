@@ -1,0 +1,16 @@
+<%= form_for @tweet do |f| %>
+    <%= f.label :名前 %>
+    <%= f.text_field :name, :size => 140 %> 
+    <%= f.label :日付 %>
+    <%= f.date_field :date, :size => 140 %> 
+    <%= f.label :場所 %>
+    <%= f.text_field :place, :size => 140 %> 
+    <%= f.label :ジャンル %>
+    <%= f.text_field :genre, :size => 140 %> 
+    <%= f.label :主催者 %>
+    <%= f.text_field :organizer, :size => 140 %> 
+    <%= f.label :説明 %>
+    <%= f.text_area :about, :size => 140 %> 
+    
+    <%= f.submit "編集する" %>
+  <% end %>
