@@ -8,6 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   CarrierWave.configure do |config|
     config.cache_storage = :file
   end
+
   # storage :fog
 
   # Override the directory where uploaded files will be stored.

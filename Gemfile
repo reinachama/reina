@@ -58,8 +58,22 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
-gem 'carrierwave' , '~> 1.3' ,  '>= 1.3.1'
-gem 'cloudinary'
-gem 'dotenv-rails'
+gem 'carrierwave',  '~> 1.3' ,  '>= 1.3.1'
+gem 'cloudinary', '< 2.0.0'
+
+
 gem 'geocoder'
+
+gem 'fog-aws'
+
+# S3クラウドストレージを使う用
+gem 'aws-sdk-s3', require: false
+
+# ファイルの加工処理用
+gem 'image_processing'
+gem 'mini_magick'
+
+# Active Storageバリデーション用
+gem 'active_storage_validations'
 gem 'dotenv-rails'
+ 

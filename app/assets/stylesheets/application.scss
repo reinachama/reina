@@ -26,11 +26,12 @@
   }
   
   header {
-    background-color: #6aa875;
-    height: 80px;
+    background-color: #9cd3a7;
+    height: 100px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
+    background-image:url(https://loosedrawing.com/assets/illustrations/png/724.png);
     // align-items: center;
   }
 
@@ -40,10 +41,30 @@
    
   }
 
+  .a-title {
+    display: flex;
+    align-items: center; /* アイテムを垂直方向に中央揃え */
+    margin: 20px;
+}
+
+  .a-title p{
+    font-size: 40px;
+    margin: 0 8px 0 0; 
+    align-items: center;
+  }
+  .logo{
+    height: 90px;  /* ロゴの高さを設定（任意） */
+    width: auto; 
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
   .a-about {
     display: grid;
     display: flex;
     place-items: center;
+    margin: 30px;
+    
    
   }
 
@@ -59,8 +80,11 @@
     margin: 4px 2px; /* マージン */
     cursor: pointer; /* カーソルをポインタに変更 */
     border-radius: 12px; /* 角を丸くする */
+    font-family: "Abril Fatface", serif;
+    border: 1px solid #343434;
   }
   
   .btn-new:hover {
-    background-color: #45a049; /* ホバー時の背景色 */
+    background-color: #b0e3b2; /* ホバー時の背景色 */
   }
+

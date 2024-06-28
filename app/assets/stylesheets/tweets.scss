@@ -1,3 +1,159 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#index{
+    background-image: url("background.avif");
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+text-align: center;
+    .back{
+        height: 650px;
+    }
+    .container{
+        background-color: #fafffa; 
+        height: 1100px;
+    }
+      
+    .tweets {
+     justify-content: center;
+    }
+  
+    
+    .btn-new {
+        background-color: #f6fff6; /* 緑色の背景 */
+        color: rgb(15, 14, 14); /* 白色の文字 */
+        border: none; /* 枠線なし */
+        padding: 10px 20px; /* パディング */
+        text-align: center; /* テキストの中央揃え */
+        text-decoration: none; /* テキストの下線なし */
+        display: inline-block; /* インラインブロック要素 */
+        font-size: 16px; /* フォントサイズ */
+        margin: 4px 2px; /* マージン */
+        cursor: pointer; /* カーソルをポインタに変更 */
+        border-radius: 12px; /* 角を丸くする */
+        font-family: "Abril Fatface", serif;
+        border: 1px solid #343434;
+        }
+    
+    .btn-new:hover {
+        background-color: #b0e3b2; /* ホバー時の背景色 */
+    }
+    
+    
+    h1 {
+    margin: 30px 10px;
+    text-align: left;
+    }
+    
+ 
+    
+    .image{
+    height: 300px;
+    width: 100%;
+    @keyframes infinity-scroll-left {
+        from {
+        transform: translateX(0);
+        }
+        to {
+        transform: translateX(-100%);
+        }
+    }
+    }
+    
+    .image_wrap {
+        display: flex;
+        overflow: hidden;
+        grid-column: span 3; /* 1列分の幅を取る */
+    }
+    
+    .image_list {
+        display: flex;
+        list-style: none;
+        padding: 0
+    }
+    
+    .image_list--left{
+        animation :infinity-scroll-left 95s infinite linear 0.5s both;
+    }
+    
+    .image_item {
+        width: calc(100vw / 6);
+    }
+    
+    .image_item > img{
+        width: 100%;
+    }
+    
+    .cat-icon{
+        height: 300px;
+        width: 300px;
+        margin: 15px;
+    }
+    
+    
+    
+    p {
+    text-align: center;
+    font-size: 20px;
+    margin: 50px auto;
+    }
+    
+    
+    
+    .new{
+    
+    }
+    
+    .tweet {
+    padding: 20px;
+    position: relative;
+    }
+    
+   
+    
+    .main-box {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    
+    }
+    
+    .time {
+    display: flex;
+    justify-content: flex-end;
+    }
+    
+    
+    
+    .large {
+    width: 100%;
+    }
+    
+    
+    
+    .body-container {
+    margin-top: 100px;
+    background-image: 
+        url('https://loosedrawing.com/assets/illustrations/png/716.png'), /* 2番目の画像 */
+        url('https://loosedrawing.com/assets/illustrations/png/2.png'); /* 1番目の画像 */
+    background-size: 150px, 150px; /* 両方の画像をカバーに設定 */
+    background-repeat: no-repeat, no-repeat; /* 両方の画像を繰り返さない */
+        /* 両方の画像を固定 */
+
+    background-position: 30% 0%, 60% 60%;
+    
+    }
+    
+    h4{
+    font-size: 20px;
+    margin-left: 200px;
+    margin-top: 100px;
+    }
+    
+    h5{
+    font-size: 20px;
+    float: right;
+    margin-right: 200px;
+    }
+}

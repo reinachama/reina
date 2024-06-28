@@ -1,90 +1,107 @@
-<h1>Farmers Market</h1>
+<div id="index">
+  <div class="back">
+  <div class="text-overlay">身近な所から地域に貢献しよう</div>
+  </div>
+  <div class="container">
+    <div class="i-title">About Farmers Market</div>
+    
+    <p>ファーマーズマーケットとは？？</p>
+    <p>地元の生産者が集まって食材を消費者に直売する市場のこと</p>
+    <p>地域経済活性化や交流の場としての役割を果たす</p>
+    
 
- <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="写真の説明" class="large">
-<h3>About Farmers Market</h3>
- 
-<p>ファーマーズマーケットとは？？</p>
-<p>地元の生産者が集まって食材を消費者に直売する市場のこと</p>
-<p>地域経済活性化や交流の場としての役割を果たす</p>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxNTgwfDB8MXxzZWFyY2h8NXx8bWFya2V0fGVufDB8fHx8MTcxODI1NjUyMHww&ixlib=rb-4.0.3&q=80&w=400" class="small">
-<img src="https://images.unsplash.com/photo-1565695951564-007d8f297e48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxNTgwfDB8MXxzZWFyY2h8MzN8fG1hcmtldHxlbnwwfHx8fDE3MTgyNTY1MjJ8MA&ixlib=rb-4.0.3&q=80&w=400" class="small">
-<img src="https://images.unsplash.com/photo-1517137660927-27542f89984d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxNTgwfDB8MXxzZWFyY2h8NDF8fG1hcmtldHxlbnwwfHx8fDE3MTgyNTY1MjJ8MA&ixlib=rb-4.0.3&q=80&w=400" class="small">
-</div>
-<div class="search">
-  <h3>Post</h3>
-  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag 'search'  %>
-  <% end %>
-</div>
-
-<div class="new">
-  <%= link_to "New post", new_tweet_path %>
-</div>
-
-<% if user_signed_in? %>
-  <%= link_to "Sign up", user_path(current_user.id) %>
-<% end %>
-
-<%= page_entries_info @tweets %>
-<%= paginate @tweets %>
-
-<div class="tweets-container">
-  <% @tweets.each do |t| %>
-    <div class="tweet">
-
-      <%= image_tag t.image_url, size: "250x200" if t.image? %>
-      <%= t.user.email %>
-      <div>
-      <%= t.name %>
-    </div>
-    <div>
-      <%= t.date %>
-    </div>
-    <div>
-      <%= t.place %>
-    </div>
-    <div>
-      <%= t.genre %>
-    </div>
-    <div>
-      <%= t.organizer %>
-    </div>
-    <div>
-      <%= t.about %>
-    </div>
-    <div>
-      <%= t.created_at %>
-    </div>
-      <% if user_signed_in? %>
-
-      <% if current_user.already_liked?(t) %>
-
-          <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
-            <i class="fas fa-heart"></i><%= t.likes.count %>
-          <% end %>
-     
-          <% else %>
-          <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :tweet do %>
-            <i class="far fa-heart"></i><%= t.likes.count %>
-          <% end %>
-
-      <% end %>
-
- 
-      <% else %>
-      <i class="far fa-heart"></i><%= t.likes.count %>
-      <% end %>
-
-      
-      <%= link_to "Detail", tweet_path(t.id) %> 
-
-      <% if user_signed_in? && current_user.id == t.user_id %>
-      <%= link_to "Edit", edit_tweet_path(t.id) %>
-      <%= link_to "Delete", tweet_path(t.id), method: :delete %>
-    <% end %> 
+    <div class="image">
+      <div class="image_wrap">
+        <ul class="image_list image_list--left">
+          <%= image_tag '1.jpg', :class=>"cat-icon" %>
+          <%= image_tag '2.jpg', :class=>"cat-icon" %>
+          <%= image_tag '3.jpg', :class=>"cat-icon" %>
+          <%= image_tag '4.jpg', :class=>"cat-icon" %>
+          <%= image_tag '5.jpg', :class=>"cat-icon" %>
+          <%= image_tag '6.jpg', :class=>"cat-icon" %>
+        </ul>
+        <ul class="image_list image_list--left">
+          <%= image_tag '1.jpg', :class=>"cat-icon" %>
+          <%= image_tag '2.jpg', :class=>"cat-icon" %>
+          <%= image_tag '3.jpg', :class=>"cat-icon" %>
+          <%= image_tag '4.jpg', :class=>"cat-icon" %>
+          <%= image_tag '5.jpg', :class=>"cat-icon" %>
+          <%= image_tag '6.jpg', :class=>"cat-icon" %>
+        </ul>
       </div>
-  <% end %>
+    </div>
+    <div class="body-container">
+      <h3>Merits</h3>
+      <h4>販売機会を増やせる<br>
+      新規のお客さんを開拓できる<br>
+      生産者同士での交流が生まれる</h4>
+      <h5>地域の新鮮な商品が低価格で買える<br>
+      顔を見ることができる安心・安全さ<br>
+      地域経済に貢献できる</h5>
+    </div>
+  </div>
+
+  <div class ="tweets">
+    
+      <div class="search">
+        <h3>Post</h3>
+        <%= form_tag({controller:"tweets", action:"index"}, method: :get, class: "search-form") do %>
+          <%= text_area_tag :search, '', :size=>"60x3", class: "search-area" %>
+          <%= submit_tag 'Search', class: "btn-new search-button" %>
+        <% end %>
+      </div>
+     
+   
+      <div class="tweet">
+     
+      <% @tweets.each do |t| %>
+        <div class="tweet_content">
+
+        <div>Name:　　<%= t.name %></div>
+        <div>Date:　　<%= t.date %></div>
+        <div>Place:　　<%= t.place %></div>
+        <div>Genre:   <%= t.genre %></div>
+        <div>Organizer:　 <%= t.organizer %></div>
+        <div>About:　　<%= t.about %></div>
+        <div>Post_time  <%= t.created_at.strftime('%Y年%m月%d日 %H時%M分')%></div>
+        <div><%= image_tag t.image_url, size: "300x300" if t.image? %></div>
+
+        <div class="tweet-detail">
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+            <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+              <i class="fas fa-heart heart-icon"></i><%= t.likes.count %>
+            <% end %>
+          <% else %>
+            <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :tweet do %>
+              <i class="fas fa-heart heart-icon"></i><%= t.likes.count %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <i class="fas fa-heart heart-icon"></i><%= t.likes.count %>
+        <% end %>
+
+          
+        <%= link_to "Detail >", tweet_path(t.id), class:"btn-new" %> 
+        <% if user_signed_in? && current_user.id == t.user_id %>
+         
+    
+        <% end %>
+              </div>
+           
+  </div>
+      <% end %>
+ 
+    
+
+
+
+  </div>
+      <div class="new">
+  <%= link_to "New post>", new_tweet_path, class:"btn-new" %>
+    </div>
+    <div class="pagenate">
+    <%= page_entries_info @tweets %>
+    <%= paginate @tweets %>
+</div>
 </div>

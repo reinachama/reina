@@ -1,23 +1,105 @@
 .post-container {
     margin: 50px auto;
     width: 50%;
-    border: solid #d3def1;
+    border: solid #fafbfe;
     border-radius: 10px;
     text-align: center;
-    background-color: #799edf;
+    background-color: #f2f5fa;
   }
   .title {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 50px;
   }
-  input[type="text"] {
-    width: 95%;
-    height: 40px;
-  }
   input[type="submit"] {
     width: 200px;
     font-size: 20px;
     margin-top: 50px;
     margin-bottom: 30px;
+  
   }
+
+.new-post h3{
+  font-size: xx-large;
+  margin: 20px;
+  
+}
+.btn-new {
+  background-color: #f6fff6; /* 緑色の背景 */
+  color: rgb(15, 14, 14); /* 白色の文字 */
+  padding: 10px 20px; /* パディング */
+  text-align: center; /* テキストの中央揃え */
+  text-decoration: none; /* テキストの下線なし */
+  display: inline-block; /* インラインブロック要素 */
+  font-size: 16px; /* フォントサイズ */
+  margin: 4px 4px; /* マージン */
+  cursor: pointer; /* カーソルをポインタに変更 */
+  border-radius: 12px; /* 角を丸くする */
+  font-family: "Abril Fatface", serif;
+  border: 1px solid #343434;
+ }
+ .new-post{
+  background-image: url('https://images.unsplash.com/photo-1519945302083-c274aa26c627?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 1600px 1000px;
+  width: 100%;
+  margin-top: -20px;
+  
+ }
+ 
+
+
+ .new_map{
+  color:#f2f5fa,
+ }
+ 
+ .login h2{
+  color: #0d0d0d;
+  margin: 20px;
+ }
+
+
+.field label {
+  
+  width: 50%;
+ 
+}
+
+.field input[type="text"],
+.field input[type="date"],
+.field textarea,
+.field input[type="file"] {
+  width: 30%;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+
+ .field{
+  color: #1b1b1b;
+  font-size: x-large;
+  padding-bottom: 10px;
+  margin-left: 20px;
+  border-radius: 5%;
+
+
+ }
+ .img-field{
+  size: 50% 50%;
+ background-color: #f2f5fa;
+  background-image: url('https://loosedrawing.com/assets/illustrations/png/547.png');
+  background-size: 300px 300px; /* 画像がフォーム全体を覆うように設定 */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-position: right; /* 画像を中央に配置 */
+  padding: 20px; /* フォームの内側にスペースを追加 */
+  border-radius: 10px; /* フォームの角を丸くする */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* フォームに影を追加 */
+  text-align: right;
+
+}
+
+ .form-field{
+  text-align: right;
+  border-radius: 5%;
+ }

@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-
+ 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, 
   :recoverable, :rememberable, :validatable
 
   has_many :tweets, dependent: :destroy
@@ -12,7 +14,7 @@ class User < ApplicationRecord
     self.likes.exists?(tweet_id: tweet.id)
   end
   mount_uploader :image, ImageUploader
-  has_many :comments, dependent: :destroy#追記 ユーザーが削除されたら、ツイートも削除されるようになります。すでに書いてある場合は追記しなくて大丈夫です。
+  has_many :tweets, dependent: :destroy#追記 ユーザーが削除されたら、ツイートも削除されるようになります。すでに書いてある場合は追記しなくて大丈夫です。
   validates :name, presence: true #追記
   validates :profile, length: { maximum: 200 }
 end

@@ -10,23 +10,26 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  
   <body>
-
     <header>
       <div class="a-title">
         <p>Farmers Market</p>
+        <img src="https://loosedrawing.com/assets/illustrations/png/726.png" class="logo">
+
       </div>
       <div class="a-about">
         <% if user_signed_in? %>
-          <li><%= button_to 'Logout', stroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Mypage >", user_path(current_user.id), class:"btn-new" %></li>
+          <li><%= link_to 'Logout >', destroy_user_session_path, method: :delete, class: "btn-new" %></li>
+          <li><%= link_to "New post>", new_tweet_path, class:"btn-new" %></li>
+
         <% else %>
-          <li><%= button_to "Sign up", new_user_registration_path, class: "btn-new" %></li>
-          
-          <li><%= button_to "Login", new_user_session_path, class: "btn-new" %></li>
+          <li><%= link_to "Sign up >", new_user_registration_path, class: "btn-new" %></li>
+          <li><%= link_to "Login >", new_user_session_path, class: "btn-new" %></li>
+          <li><%= link_to "New post>", new_tweet_path, class:"btn-new" %></li>
         <% end %>
       </div>
+       
     </header>
     <main>
       <%= yield %>
@@ -35,3 +38,4 @@
     </footer>
   </body>
 </html>
+

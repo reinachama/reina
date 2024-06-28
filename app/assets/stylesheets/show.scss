@@ -1,0 +1,37 @@
+.show_tweet p{
+    
+    margin: 20px;
+}
+
+.btn-new {
+    background-color: #f6fff6; /* 緑色の背景 */
+    color: rgb(15, 14, 14); /* 白色の文字 */
+    padding: 10px 20px; /* パディング */
+    text-align: center; /* テキストの中央揃え */
+    text-decoration: none; /* テキストの下線なし */
+    display: inline-block; /* インラインブロック要素 */
+    font-size: 16px; /* フォントサイズ */
+    margin: 4px 4px; /* マージン */
+    cursor: pointer; /* カーソルをポインタに変更 */
+    border-radius: 12px; /* 角を丸くする */
+    font-family: "Abril Fatface", serif;
+    border: 1px solid #343434;
+   }
+
+.show{
+    background-color: rgb(232, 251, 245);
+    text-align: center;
+}
+
+.show h1{
+    margin-top: 0px;
+}
+
+.heart-icon {
+    font-size: 30px; /* 好きなサイズに変更 */
+    color: palevioletred;
+    
+}
+.heart-icon:hover {
+    color: #f00; /* ホバー時の色 */
+}

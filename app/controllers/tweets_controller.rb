@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
+    before_action :set_tweet, only: [:update, :destroy, :show]
+    
     def index
     
       if params[:search] == nil
@@ -23,16 +25,15 @@ class TweetsController < ApplicationController
       end
     
       def create
-        tweet = Tweet.new(tweet_params)
-        tweet.user_id = current_user.id 
-        if tweet.save!
-          redirect_to :action => "index"
+        @tweet = Tweet.new(tweet_params)
+        @tweet.user_id = current_user.id 
+        if @tweet.save
+          redirect_to tweets_path, notice: 'Tweet was successfully created.'  # 適切なパスにリダイレクト
         else
-          redirect_to :action => "new"
+          render :new
         end
-        
-
       end
+    
 
       def show
         @tweet = Tweet.find(params[:id])
@@ -47,8 +48,9 @@ class TweetsController < ApplicationController
       
       
       def update
-        tweet = Tweet.find(params[:id])
-        if tweet.update(tweet_params)
+        
+        @tweet = Tweet.find(params[:id])
+        if @tweet.update(tweet_params)
           redirect_to :action => "show", :id => tweet.id
         else
           redirect_to :action => "new"
@@ -56,8 +58,8 @@ class TweetsController < ApplicationController
       end
 
       def destroy
-        tweet = Tweet.find(params[:id])
-        tweet.destroy
+        @tweet = Tweet.find(params[:id])
+        @tweet.destroy
         redirect_to action: :index
 
 
@@ -66,9 +68,13 @@ class TweetsController < ApplicationController
     
 
       private
-      def tweet_params
-        params.require(:tweet).permit(:name, :date, :place, :genre, :organizer, :about, :image, :lat, :lng, :address)
+
+      def set_tweet
+        @tweet = Tweet.find(params[:id])
       end
 
-       
+      def tweet_params
+        params.require(:tweet).permit(:name, :date, :place, :genre, :organizer, :about, :lat, :lng, :address, :image_top, :images, :image)
+      end
+
 end
